@@ -24,5 +24,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'spring'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
 end
 
