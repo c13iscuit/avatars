@@ -12,7 +12,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-gem 'spring',        group: :development
+gem 'fog'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :test, :development do
   gem 'capybara'
@@ -21,5 +23,6 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem 'spring'
 end
 
