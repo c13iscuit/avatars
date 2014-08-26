@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @new_user = User.new
+    @user = User.new
   end
 
   def create
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to :users
     else
-      flash[:notice] = "Username and Avatar can't be blank!"
       render :new
     end
   end
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :avatar)
+    params.require(:user).permit(:username, :avatar, :password, :password_confirmation)
   end
 
 end

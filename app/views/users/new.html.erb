@@ -2,28 +2,32 @@
 
 <%= link_to "homepage", users_path %>
 
-<%= form_for @new_user do |f| %>
-  <% if @new_user.errors.any? %>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
     <div class="error-msgs">
       <h2>Form submission failed:</h2>
       <ul>
-        <% @new_user.errors.full_messages do |msg| %>
+        <% @user.errors.full_messages.each do |msg| %>
           <li><%=  msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
   <p>
-    <%= f.label :username %><br>
+    <%= f.label :username %>:<br>
     <%= f.text_field :username %>
   </p>
   <p>
-    <%= f.label :password %><br>
+    <%= f.label :password %>:<br>
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :confirm_password %>:<br>
     <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :avatar %>:<br>
+    <%= f.text_field :avatar %>
   </p>
   <p class="button"><%= f.submit %></p>
 <% end %>
