@@ -25,4 +25,11 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  def create_first_image
+    first = Image.new(
+      url: "https://avatars-development.s3.amazonaws.com/uploads/user/avatar/#{self.id}/#{self.avatar.filename}",
+      user_id: self.id)
+    first.save
+  end
 end

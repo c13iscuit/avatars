@@ -10,8 +10,9 @@
 
 <div id="user_nav">
   <% if current_user %>
-    <%= image_tag current_user.avatar, size: "50x50" %>
+    <%= image_tag current_user.avatar, size: "50x50" %><br>
     Logged in as <%= current_user.username %><br>
+    <%= link_to "Change my avatar", edit_user_path(current_user.id) %><br>
     <%= link_to "Log out", log_out_path %>
   <% else %>
     <%= link_to "Sign up", sign_up_path %> or
