@@ -19,4 +19,4 @@
 /public/uploads
 
 # Ignore ENV file
-.env
+/.env

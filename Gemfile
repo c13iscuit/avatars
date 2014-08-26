@@ -16,6 +16,7 @@ gem 'bcrypt'
 gem 'fog'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'dotenv-rails'
 
 group :test, :development do
   gem 'capybara'
