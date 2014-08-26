@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :avatar
 
+  mount_uploader :avatar, AvatarUploader
+
   def self.authenticate(username, password)
     user = User.find_by username: username
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
