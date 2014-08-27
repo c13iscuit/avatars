@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @everyone = User.order('created_at desc')
+    # Intended to show a gallery of other users' avatars
+    # @everyone = User.order('created_at desc')
   end
 
   def new
@@ -19,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    if current_user
+      @user = current_user
+    else
+      redirect_to :users
+    end
   end
 
   def update
