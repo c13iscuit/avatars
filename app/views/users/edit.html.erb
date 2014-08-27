@@ -2,12 +2,6 @@
 
 <%= link_to "homepage", users_path %>
 
-<ul>
-  <% current_user.images.each do |img| %>
-    <li><%= image_tag img.url, size: "150x150" %></li>
-  <% end %>
-</ul>
-
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error-msgs">

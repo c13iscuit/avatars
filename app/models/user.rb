@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  has_many :images
+  # has_many :images
 
   before_save :encrypt_password
 
@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_first_image
-    first = Image.new(
-      url: "https://avatars-development.s3.amazonaws.com/uploads/user/avatar/#{self.id}/#{self.avatar.filename}",
-      user_id: self.id)
-    first.save
-  end
+  # def add_image
+  #   img = Image.new(
+  #     url: "/uploads/user/avatar/#{self.id}/#{self.avatar.filename}",
+  #     user_id: self.id)
+  #   img.save
+  # end
 end

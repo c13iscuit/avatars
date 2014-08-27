@@ -7,7 +7,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   if Rails.env.production? || Rails.env.development?
-    storage :fog
+    storage :file
   else
     storage :file
   end

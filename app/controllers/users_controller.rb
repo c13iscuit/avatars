@@ -10,10 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       session[:user_id] = @user.id
-      @user.create_first_image
       redirect_to :users
     else
       render :new
