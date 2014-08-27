@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  # This was an attempt to clone an uploaded user avatar as an instance on image class
+  # Then users could see a menu of all their previous avatars and select an older one
   # def add_image
   #   img = Image.new(
   #     url: "/uploads/user/avatar/#{self.id}/#{self.avatar.filename}",
