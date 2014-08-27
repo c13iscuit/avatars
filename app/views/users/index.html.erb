@@ -1,1 +1,95 @@
-<h1>Index</h1>
+<% if !current_user %>
+  <section id="top" class="one dark cover">
+    <div class="container">
+
+      <header>
+        <h2 class="alt">Ever wanted one of those cool avatars that everyone else seems to have? Now you can get one for free or upload your own!</h2>
+        <p>Get started by:<br />
+      </header>
+
+      <footer>
+        <a href="sign_up" class="button">Signing up!</a>
+        <a href="log_in" class="button">Logging in!</a>
+      </footer>
+
+    </div>
+  </section>
+<% end %>
+
+<section id="portfolio" class="two">
+  <div class="container">
+
+    <header>
+      <h2>Stock Avatars</h2>
+    </header>
+
+    <p>Here are some awesome stock avatars for you to use, <br>
+    in case you don't want to upload you're own.</p>
+
+    <div class="row">
+      <div class="4u">
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://psbehrend.psu.edu/sites/default/files/images/Nye%20Bill-%20Photo%20(High%20Res%20HEADSHOT%202005).jpg" alt="" /></a>
+          <header>
+            <h3>This one.</h3>
+          </header>
+        </article>
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://skepticfreethought.com/wp-content/uploads/2012/06/neiltyson.jpg" alt="" /></a>
+          <header>
+            <h3>That one.</h3>
+          </header>
+        </article>
+      </div>
+      <div class="4u">
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://i1.kym-cdn.com/photos/images/original/000/101/781/Y0UJC.png" alt="" /></a>
+          <header>
+            <h3>Laughing Guy.</h3>
+          </header>
+        </article>
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://i.imgur.com/iWKad22.jpg" alt="" /></a>
+          <header>
+            <h3>Facepalm.</h3>
+          </header>
+        </article>
+      </div>
+      <div class="4u">
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://a.abcnews.go.com/images/Health/gty_tom_brady_jef_120126_wg.jpg" alt="" /></a>
+          <header>
+            <h3>Tom Brady.</h3>
+          </header>
+        </article>
+        <article class="item">
+          <a href="#" class="image fit"><img src="http://flowtv.org/wp-content/uploads/2011/05/Nic-Cage-Con-Air.png" alt="" /></a>
+          <header>
+            <h3>Nic Cage.</h3>
+          </header>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<% if current_user %>
+<section id="contact" class="four">
+  <div class="container">
+
+    <header>
+      <h2>Upload an avatar:</h2>
+    </header>
+
+    <p>It ain't that hard. Here's some help if you're new:<br>
+      Find a fun picture on the internet.<br>
+      Right click and select "save image as"<br>
+      Give it a name you can remember and upload it here!</p>
+
+    <a href=<%="/users/#{current_user.id}/edit"%> class="button">Upload!</a>
+
+  </div>
+</section>
+<% end %>
+

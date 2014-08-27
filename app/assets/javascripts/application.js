@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.min
+//= require skel.min
+//= require init
 //= require_tree .

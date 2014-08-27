@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  # has_many :images
+  has_many :images
 
   before_save :encrypt_password
 

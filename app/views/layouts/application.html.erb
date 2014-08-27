@@ -3,32 +3,75 @@
 <head>
   <title>Avatars</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.scrollzer.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-wide.css" />
+    </noscript>
+    <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 </head>
 <body>
 
-<div id="user_nav">
-  <% if current_user %>
-    <%= image_tag current_user.avatar, size: "50x50" %><br>
-    Logged in as <%= current_user.username %><br>
-    <%= link_to "Change my avatar", edit_user_path(current_user.id) %><br>
-    <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "Log in", log_in_path %>
-  <% end %>
-</div>
+    <!-- Header -->
+      <div id="header">
 
-  <div>
-    <p style="text-align:center;">
-      <% if flash.any? %>
-        <%= flash[:notice] %>
-      <% end %>
-    </p>
+        <div class="top">
+
+          <!-- Logo -->
+            <div id="logo">
+              <% if current_user %>
+                <a href=<%="/users/#{current_user.id}/edit"%>>
+                  <%=image_tag current_user.avatar, size: "150x150"%></a>
+                <h5 style="color: #c3c3c3;"><%= current_user.username %></h5>
+                <h5><a href="/log_out">Logout</a></h5>
+              <% end %>
+              <hr>
+            </div>
+
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li><a href="/" id="top-link" class="skel-layers-ignoreHref"><span>Home</span></a></li>
+                <% if !current_user %>
+                  <li><a href="/sign_up" id="top-link" class="skel-layers-ignoreHref"><span>Sign up</span></a></li>
+                  <li><a href="/log_in" id="top-link" class="skel-layers-ignoreHref"><span>Log in</span></a></li>
+                  <li><a href="/#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span>Stock Avatars</span></a></li>
+                <% end %>
+              </ul>
+            </nav>
+
+        </div>
+
+      </div>
+
+<!-- Main -->
+  <div id="main">
+
+    <%= yield %>
+
   </div>
 
-<%= yield %>
+      <div id="footer">
+
+          <ul class="copyright">
+            <li>&copy; c13iscuit labs. All rights reserved.</li><li>With design elements from: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+
+      </div>
 
 </body>
 </html>

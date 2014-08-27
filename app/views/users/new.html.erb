@@ -1,34 +1,40 @@
-<h1>Sign Up</h1>
 
-<%= link_to "homepage", users_path %>
+<section id="top" class="one dark cover">
+  <div class="container">
+    <% if @user.errors.any? %>
+      <div class="error-msgs">
+        <h2>Form submission failed:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%=  msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error-msgs">
-      <h2>Form submission failed:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%=  msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :username %>:<br>
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :password %>:<br>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :confirm_password %>:<br>
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.label :avatar %>:<br>
-    <%= f.file_field :avatar %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
+    <%= form_for @user do |f| %>
+      <div class="row" style="margin-left: 5em;">
+        <div class="9u">
+          <%= f.text_field :username, placeholder: "Username" %>
+        </div>
+        <div class="9u">
+          <%= f.password_field :password, placeholder: "Password" %>
+        </div>
+        <div class="9u">
+          <%= f.password_field :password_confirmation, placeholder: "Confirm your password" %>
+        </div>
+        <div class="5u">
+          <%= f.label :avatar %>
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="12u">
+          <input type="submit" value="Sign up" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
 

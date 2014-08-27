@@ -1,13 +1,20 @@
-<h1>Log in</h1>
+<section id="top" class="one dark cover" style="height: 500px;">
+  <div class="container">
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :username %><br>
-    <%= text_field_tag :username, params[:username] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag %></p>
-<% end %>
+    <%= form_tag sessions_path do %>
+      <div class="row" style="margin-left: 5em;">
+        <div class="9u">
+          <%= text_field_tag :username, nil, placeholder: "Username" %>
+        </div>
+        <div class="9u">
+          <%= password_field_tag :password, nil, placeholder: "Password" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="12u">
+          <input type="submit" value="Log in" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,21 +1,19 @@
-<h1>Edit</h1>
 
-<%= link_to "homepage", users_path %>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error-msgs">
-      <h2>Form submission failed:</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%=  msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= f.label :avatar %>:<br>
-    <%= f.file_field :avatar %>
-  </p>
-  <p class="button"><%= f.submit %></p>
-<% end %>
+<section id="top" class="one dark cover" style="height: 500px;">
+  <div class="container">
+    <h3>Yup, just one big button.</h3>
+    <%= form_for @user do |f| %>
+      <div class="row" style="margin-left: 5em;">
+        <div class="9u">
+          <%= f.file_field :avatar %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="12u">
+          <input type="submit" value="Upload!" />
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
